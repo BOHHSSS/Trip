@@ -335,6 +335,34 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
 .trip-info-flight[aria-expanded=true] .flight-chevron{transform:rotate(180deg)}
 @media(max-width:350px){.trip-info-flight,.trip-info-hotel{padding-inline:8px}}
 @media print{#flight-details[hidden]{display:block!important}.trip-info-action{display:none}}
+
+@media screen{
+  main{
+    --section-space:clamp(28px,6vw,48px);
+    --group-space:clamp(22px,4.5vw,34px);
+  }
+  #overview{padding-block:var(--group-space) 22px}
+  .trip-info-flight,.trip-info-hotel{padding-block:16px;gap:5px}
+  #overview .flight-overview{padding-top:22px}
+
+  main>section:is(#d1,#d2,#d3,#d4,#food,#check){
+    padding-block:var(--section-space);
+  }
+  body .day-intro,body[data-mode=couple] .day-intro{margin-bottom:22px}
+  .route-panel{margin-bottom:var(--group-space)}
+  .track>.tag{margin-bottom:12px}
+  .track+.track{margin-top:var(--group-space)}
+  .timeline-heading{
+    margin:var(--group-space) 0 6px;
+    padding:12px 0 4px;
+    border-top:1px solid var(--line);
+  }
+  .track>.tag+.timeline-heading{border-top:0}
+  .event,.timeline-heading+.event{padding-block:12px 14px}
+  .event:after{left:0;right:0}
+  .event:has(+.timeline-heading):after{display:none}
+  .tour-options{margin-top:var(--group-space)}
+}
 </style></head><body data-mode="family"><main><header class="trip-cover"><div class="cover-backdrop" aria-hidden="true"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Seaside_Momochi_Seaside_Park_Fukuoka_Tower_and_Marizon_at_sunset_Sawara-ku_Fukuoka_20240116.jpg/960px-Seaside_Momochi_Seaside_Park_Fukuoka_Tower_and_Marizon_at_sunset_Sawara-ku_Fukuoka_20240116.jpg" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgMzUwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjM1MCIgZmlsbD0iI2RjZWNmOCIvPjxjaXJjbGUgY3g9IjY3MCIgY3k9IjYyIiByPSIzNCIgZmlsbD0iI2ZmZjJjZSIvPjxwYXRoIGZpbGw9IiM3ZGI5ZDAiIGQ9Ik0wIDE3MEg4MDBWMzUwSDB6Ii8+PHBhdGggZmlsbD0iI2Y0ZGZiZSIgZD0iTTAgMjcwUTM4MCAyMjUgODAwIDI4MFYzNTBIMHoiLz48cGF0aCBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiM0OTZkOTIiIHN0cm9rZS13aWR0aD0iNSIgZD0iTTUxMCAyNTBMNTUwIDQ4TDU5MCAyNTBaIi8+PHBhdGggc3Ryb2tlPSIjNDk2ZDkyIiBzdHJva2Utd2lkdGg9IjUiIGQ9Ik01NTAgNDhWMTVNNTIwIDIwMEg1ODBNNTMwIDE1MEg1NzAiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTI1IDI0NVYxODBIMjM1VjI0NU0xMTUgMTgwTDE4MCAxNDBMMjQ1IDE4MFoiLz48cGF0aCBmaWxsPSIjZDlhMDdmIiBkPSJNMTc1IDI0NVYyMDdIMTk1VjI0NSIvPjxwYXRoIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii42NSIgZD0iTTYwIDU1aDkwYTIwIDIwIDAgMCAwLTMwLTEyYTMwIDMwIDAgMCAwLTYwIDEyWiIvPjwvc3ZnPg==" decoding="async" referrerpolicy="no-referrer" fetchpriority="high"/></div><div class="cover-top"><p class="cover-kicker">FUKUOKA, JAPAN</p><div class="hero-actions"><a data-audience="family" href="https://maps.app.goo.gl/Bmj37UE9AXqH4kNK8?g_st=ic" aria-label="숙소 지도 열기" title="숙소 지도" target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg></a><button type="button" id="share-trip" aria-label="일정 공유" title="일정 공유"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m-4 4 4-4 4 4M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg></button></div></div><h1>Merry Fukuoka! <span class="cover-emoji" aria-hidden="true">🎄</span></h1><p class="cover-period">2026. 12. 18 — 12. 21 <span aria-hidden="true">·</span> 3박 4일</p></header><section id="overview" aria-label="항공편과 숙소">
 <div class="trip-info">
 <button class="trip-info-flight" type="button" aria-expanded="false" aria-controls="flight-details">
