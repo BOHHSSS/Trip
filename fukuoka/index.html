@@ -363,6 +363,103 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
   .event:has(+.timeline-heading):after{display:none}
   .tour-options{margin-top:var(--group-space)}
 }
+
+/* Shared screen styles for itinerary, dining and preparation */
+@media screen{
+  body,body[data-mode=couple]{
+    --ink:#172825;--muted:#52635e;--accent:#006e5a;
+    --line:#dce8e3;--section-divider:#edf4f1;--row-divider:#e8efec;
+    --surface:#f4f8f6;--selected:#dff2e9;--radius:14px;
+    background:var(--section-divider);
+  }
+  body[data-mode=couple]{--accent:#795069;--selected:#f4e9f0}
+  main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  .trip-cover,body[data-mode=couple] .trip-cover{
+    min-height:188px;display:flex;flex-direction:column;justify-content:space-between;
+    padding-block:18px 25px;background:#163731;
+  }
+  .trip-cover h1{
+    font-family:inherit;font-size:clamp(32px,7vw,47px);
+    font-weight:800;letter-spacing:-.055em;line-height:1.12;
+  }
+  .trip-cover .cover-kicker{color:#e1eee9}
+  .trip-cover .hero-actions :is(a,button){border-radius:12px;box-shadow:none}
+
+  #overview{padding-block:24px}
+  .trip-info{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .trip-info-flight,.trip-info-hotel{padding:16px clamp(10px,3vw,22px)}
+  .trip-info-label{font-weight:750;color:var(--ink)}
+  .trip-info-flight:hover,.trip-info-hotel:hover{background:var(--surface)}
+  .trip-info :focus-visible{outline-offset:-3px}
+  .flight-ticket,.hotel-date{border-color:var(--line);border-radius:var(--radius)}
+
+  .trip-nav{padding-top:0;background:#fff;border-bottom:1px solid var(--line)}
+  .trip-nav .date-tabs,body[data-nav-compact=true] .trip-nav .date-tabs{
+    gap:6px;padding:7px 0;border:0;border-radius:0;
+    background:#fff;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  .trip-nav .date-tabs a{border-radius:10px;color:var(--muted)}
+  .trip-nav .date-tabs a.active{
+    background:var(--selected);border-color:transparent;color:var(--accent);box-shadow:none;
+  }
+
+  main>section:is(#d1,#d2,#d3,#d4){
+    padding-block:var(--section-space);
+    border-bottom:8px solid var(--section-divider);
+  }
+  body .day-intro,body[data-mode=couple] .day-intro{
+    min-height:clamp(116px,20vw,160px);padding-block:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .day-intro h2,#food>h2,#check>h2{
+    font-size:clamp(23px,5.5vw,34px);color:var(--ink);
+    font-weight:800;letter-spacing:-.045em;line-height:1.2;
+  }
+  .day-intro .day-index{color:var(--accent)}
+  .day-intro .day-date,.day-intro .sub{color:var(--muted)}
+  .day-intro-photo{
+    width:clamp(110px,35%,235px);
+    mask-image:linear-gradient(to right,transparent,#000 78%);
+  }
+  .route-panel,.tour-options,.saved-list,.other-places{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  }
+  .timeline-heading{color:var(--ink);font-size:16px}
+  .event-icon{color:var(--accent);background:var(--surface)}
+  .event.key .event-icon,body[data-mode=couple] .event.key:not([data-kind=food]) .event-icon{background:var(--selected)}
+  .event:after,.food-card:after,#checks label:after{background:var(--row-divider)}
+
+  #food>.sub,#check>.sub{color:var(--muted);line-height:1.65}
+  .food-tools :is(input,select),.food-quick-filters button{
+    background:var(--surface);border-color:var(--line);border-radius:10px;
+  }
+  .food-quick-filters button[aria-pressed=true]{background:var(--selected);color:var(--accent)}
+  .food-card{padding-block:20px}
+  .food-card h3{font-weight:800}
+  .food-photo,.food-actions a{border-radius:10px}
+  .progress-row{
+    padding:14px 16px;background:var(--selected);border-radius:var(--radius);
+    color:var(--accent);
+  }
+  #check-progress{accent-color:var(--accent)}
+  #checks input{accent-color:var(--accent)}
+
+  .bottom-glass-nav{
+    bottom:0;width:100%;max-width:760px;gap:0;pointer-events:auto;
+    padding:5px max(8px,env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left));
+    background:#fff;border-top:1px solid var(--line);
+  }
+  .bottom-glass-nav .primary-tabs,.bottom-glass-nav .compact-mode,
+  body[data-nav-compact=true] .bottom-glass-nav :is(.primary-tabs,.compact-mode){
+    border:0;border-radius:0;box-shadow:none;background:#fff;
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  .bottom-glass-nav .primary-tabs button{border-radius:10px;color:var(--muted)}
+  .bottom-glass-nav .primary-tabs button[aria-pressed=true]{
+    background:var(--selected);color:var(--accent);border-color:transparent;box-shadow:none;
+  }
+  .bottom-glass-nav .compact-mode{border-inline-start:1px solid var(--line)}
+}
 </style></head><body data-mode="family"><main><header class="trip-cover"><div class="cover-backdrop" aria-hidden="true"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Seaside_Momochi_Seaside_Park_Fukuoka_Tower_and_Marizon_at_sunset_Sawara-ku_Fukuoka_20240116.jpg/960px-Seaside_Momochi_Seaside_Park_Fukuoka_Tower_and_Marizon_at_sunset_Sawara-ku_Fukuoka_20240116.jpg" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgMzUwIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjM1MCIgZmlsbD0iI2RjZWNmOCIvPjxjaXJjbGUgY3g9IjY3MCIgY3k9IjYyIiByPSIzNCIgZmlsbD0iI2ZmZjJjZSIvPjxwYXRoIGZpbGw9IiM3ZGI5ZDAiIGQ9Ik0wIDE3MEg4MDBWMzUwSDB6Ii8+PHBhdGggZmlsbD0iI2Y0ZGZiZSIgZD0iTTAgMjcwUTM4MCAyMjUgODAwIDI4MFYzNTBIMHoiLz48cGF0aCBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiM0OTZkOTIiIHN0cm9rZS13aWR0aD0iNSIgZD0iTTUxMCAyNTBMNTUwIDQ4TDU5MCAyNTBaIi8+PHBhdGggc3Ryb2tlPSIjNDk2ZDkyIiBzdHJva2Utd2lkdGg9IjUiIGQ9Ik01NTAgNDhWMTVNNTIwIDIwMEg1ODBNNTMwIDE1MEg1NzAiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTI1IDI0NVYxODBIMjM1VjI0NU0xMTUgMTgwTDE4MCAxNDBMMjQ1IDE4MFoiLz48cGF0aCBmaWxsPSIjZDlhMDdmIiBkPSJNMTc1IDI0NVYyMDdIMTk1VjI0NSIvPjxwYXRoIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii42NSIgZD0iTTYwIDU1aDkwYTIwIDIwIDAgMCAwLTMwLTEyYTMwIDMwIDAgMCAwLTYwIDEyWiIvPjwvc3ZnPg==" decoding="async" referrerpolicy="no-referrer" fetchpriority="high"/></div><div class="cover-top"><p class="cover-kicker">FUKUOKA, JAPAN</p><div class="hero-actions"><a data-audience="family" href="https://maps.app.goo.gl/Bmj37UE9AXqH4kNK8?g_st=ic" aria-label="숙소 지도 열기" title="숙소 지도" target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg></a><button type="button" id="share-trip" aria-label="일정 공유" title="일정 공유"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m-4 4 4-4 4 4M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg></button></div></div><h1>Merry Fukuoka! <span class="cover-emoji" aria-hidden="true">🎄</span></h1><p class="cover-period">2026. 12. 18 — 12. 21 <span aria-hidden="true">·</span> 3박 4일</p></header><section id="overview" aria-label="항공편과 숙소">
 <div class="trip-info">
 <button class="trip-info-flight" type="button" aria-expanded="false" aria-controls="flight-details">
