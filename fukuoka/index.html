@@ -728,16 +728,16 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
 /* Pastel surfaces: stronger for sections, softer for the details inside them. */
 @media screen{
   body,body[data-mode=couple]{
-    --ink:#243447;--muted:#526275;
-    --accent:#245782;--selected:#deedfc;--surface:#edf5fd;
-    --line:#dae6f2;--row-divider:#edf0f4;--section-divider:#e6f0fb;
-    --peach-ink:#844831;--peach:#ffe1d2;--peach-light:#fff1e9;
-    --mint-ink:#24604e;--mint:#d6f1e5;--mint-light:#edf9f1;
-    --blue:#dcecff;--blue-light:#edf5fd;
-    background:#eaf0f7;
+    --ink:#202124;--muted:#62656a;
+    --accent:#2459d9;--selected:#f0f2f5;--surface:#f5f5f6;
+    --line:#e4e5e7;--row-divider:#ededee;--section-divider:#f1f1f2;
+    --peach-ink:#c04425;--peach:#f2f2f3;--peach-light:#f6f6f7;
+    --mint-ink:#087c60;--mint:#f2f2f3;--mint-light:#f6f6f7;
+    --blue:#f2f2f3;--blue-light:#f6f6f7;
+    background:#f2f2f3;
   }
   main{
-    --section-divider:#e6f0fb;--row-divider:#edf0f4;background:#fff;
+    --section-divider:#f1f1f2;--row-divider:#ededee;background:#fff;
   }
   .trip-cover,body[data-mode=couple] .trip-cover{
     margin:0 calc(-1 * var(--page-gutter)) 16px;
@@ -745,9 +745,9 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
     background:var(--blue);
   }
   .trip-cover .hero-actions button{
-    background:#f8fbff;border-color:#f8fbff;color:var(--accent);
+    background:#fff;border-color:var(--line);color:var(--accent);
   }
-  .trip-mode{background:#edf6ff;border-color:#d1e4f7}
+  .trip-mode{background:#fff;border-color:var(--line)}
 
   .trip-info-flight,.trip-info-hotel{
     grid-template-columns:32px minmax(0,1fr) auto;gap:9px;
@@ -758,12 +758,12 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
   }
   .trip-info-hotel .trip-info-icon{background:var(--mint-light);color:var(--mint-ink)}
   .trip-info-icon svg{width:17px;height:17px}
-  .trip-nav{background:#f8fbff}
+  .trip-nav{background:#fff}
   .trip-nav .date-tabs a.active{
-    background:var(--blue);color:var(--accent);border-color:#c2dbf4;
+    background:var(--accent);color:#fff;border-color:var(--accent);
   }
   body .day-intro,body[data-mode=couple] .day-intro{
-    background:var(--blue);border-color:#cfe2f7;
+    background:var(--blue);border-color:var(--line);
   }
   .day-intro .day-index{color:var(--accent)}
   main>section:is(#d1,#d2,#d3,#d4){border-bottom:6px solid var(--section-divider)}
@@ -782,8 +782,8 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
   }
   .track>.tag,.track.couple>.tag{background:var(--mint-light);color:var(--mint-ink)}
 
-  #food{--accent:var(--peach-ink);--selected:var(--peach);--surface:var(--peach-light);--line:#efdacf}
-  #check{--accent:var(--mint-ink);--selected:var(--mint);--surface:var(--mint-light);--line:#d6ebe1}
+  #food{--accent:var(--peach-ink);--selected:var(--peach);--surface:var(--peach-light);--line:#e4e5e7}
+  #check{--accent:var(--mint-ink);--selected:var(--mint);--surface:var(--mint-light);--line:#e4e5e7}
   .view-intro{
     display:grid;grid-template-columns:34px minmax(0,1fr);gap:11px;
     padding:15px;margin-bottom:17px;border-radius:14px;background:var(--selected);
@@ -792,7 +792,7 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
   .view-intro h2{margin:1px 0 6px;font-size:clamp(22px,5.2vw,31px);line-height:1.2}
   .view-intro .sub{margin:0;line-height:1.6;color:var(--muted);max-width:63ch}
   #food .saved-list,#food .food-category,#check .progress-row{background:var(--surface);color:var(--accent)}
-  #food .food-card{background:#fffdfa}
+  #food .food-card{background:#fff}
   #checks label input{accent-color:var(--mint-ink)}
   .bottom-glass-nav .primary-tabs [data-view=food]{--accent:var(--peach-ink)}
   .bottom-glass-nav .primary-tabs [data-view=check]{--accent:var(--mint-ink)}
@@ -804,6 +804,39 @@ body[data-mode=couple] .trip-info{grid-template-columns:minmax(0,1fr)}
   }
 }
 @media print{.view-intro-icon,.trip-info-icon{display:none}}
+
+/* Neutral surfaces, deliberate saturated action colors */
+@media screen {
+  body,body[data-mode=couple] {
+    --secondary:#52555b;--secondary-soft:#f2f2f3;--secondary-line:#e4e5e7;
+  }
+  .trip-cover,body[data-mode=couple] .trip-cover{background:#f4f4f5}
+  .day-intro .day-index{color:var(--accent)}
+  .timeline-heading{background:#f5f5f6;color:var(--ink)}
+  .event-icon,.event.key .event-icon,
+  body[data-mode=couple] .event.key:not([data-kind=food]) .event-icon,
+  .event:is([data-kind=food],[data-kind=coffee],[data-kind=pin],[data-kind=hotel]) .event-icon,
+  body[data-mode=couple] .event.key:is([data-kind=pin],[data-kind=hotel]) .event-icon{
+    background:#f3f3f4;color:#64676c;
+  }
+  .event.key .event-icon,body[data-mode=couple] .event.key:not([data-kind=food]) .event-icon{color:var(--accent)}
+  .track>.tag,.track.couple>.tag,.route-summary-count{background:#f3f3f4;color:#575a60}
+  .trip-info-icon,.trip-info-hotel .trip-info-icon{background:#f3f3f4;color:#64676c}
+  .view-intro{background:#f4f4f5}
+  #food .food-category{background:#f3f3f4;color:#54575c}
+  #food .food-source button[aria-pressed=true],#food .food-filter button[aria-pressed=true]{
+    background:var(--accent);color:#fff;border-color:var(--accent)
+  }
+  #food .food-source button[aria-pressed=true] :is(span,small),
+  #food .food-filter button[aria-pressed=true] :is(span,small){color:inherit}
+  #food .food-quick-filters button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .source-pill{background:#f0f0f1;color:#5c5f64}
+  .source-pill.neighbor-pill{background:#f5eef1;color:#9a365c}
+  #check .progress-row{background:#f4f4f5;color:var(--accent)}
+  .bottom-glass-nav .primary-tabs button[aria-pressed=true]{background:transparent;color:var(--accent)}
+  .bottom-glass-nav .primary-tabs button[aria-pressed=true]::after{background:currentColor}
+}
+
 </style></head><body data-mode="family"><main><header class="trip-cover">
   <div class="trip-header-heading">
     <div class="cover-copy"><h1>Merry Fukuoka!</h1><p class="cover-period">2026. 12. 18 — 12. 21 <span aria-hidden="true">·</span> 3박 4일</p></div>
